@@ -1,50 +1,61 @@
-# Development
+# 🚀 Dioxus GitHub Explorer
 
-Your new bare-bones project includes minimal organization with a single `main.rs` file and a few assets.
+This project demonstrates GitHub repository explorer written in Dioxus patterns including asynchronous data fetching, reactive state management, and a premium UI using Tailwind CSS.
 
-```
-project/
-├─ assets/ # Any assets that are used by the app should be placed here
+## 🛠 Tech Stack
+
+- **Core**: [Dioxus 0.7](https://dioxuslabs.com)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com) & Vanilla CSS
+- **Networking**: [reqwest](https://docs.rs/reqwest) with JSON support
+- **Serialization**: [Serde](https://serde.rs)
+
+## 📁 Project Structure
+
+```text
+u2020dx/
+├─ assets/          # Static assets (icons, global styles)
+│  ├─ main.css      # Custom styling & dark mode overrides
+│  └─ tailwind.css  # Generated Tailwind styles
 ├─ src/
-│  ├─ main.rs # main.rs is the entry point to your application and currently contains all components for the app
-├─ Cargo.toml # The Cargo.toml file defines the dependencies and feature flags for your project
+│  ├─ main.rs       # App entry point & UI components
+│  └─ models.rs     # Data structures & API integration logic
+├─ Cargo.toml       # Project dependencies
+└─ dioxus.toml      # Dioxus CLI configuration
 ```
 
-### Automatic Tailwind (Dioxus 0.7+)
+## 🚀 Getting Started
 
-As of Dioxus 0.7, there no longer is a need to manually install tailwind. Simply `dx serve` and you're good to go!
+### Prerequisites
 
-Automatic tailwind is supported by checking for a file called `tailwind.css` in your app's manifest directory (next to Cargo.toml). To customize the file, use the dioxus.toml:
+1.  **Rust**: [Install Rust](https://www.rust-lang.org/tools/install)
+2.  **Dioxus CLI**:
+    ```bash
+    cargo install dioxus-cli
+    ```
 
-```toml
-[application]
-tailwind_input = "my.css"
-tailwind_output = "assets/out.css" # also customize the location of the out file!
-```
+### Run Locally
 
-### Tailwind Manual Install
-
-To use tailwind plugins or manually customize tailwind, you can can install the Tailwind CLI and use it directly.
-
-### Tailwind
-1. Install npm: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
-2. Install the Tailwind CSS CLI: https://tailwindcss.com/docs/installation/tailwind-cli
-3. Run the following command in the root of the project to start the Tailwind CSS compiler:
-
-```bash
-npx @tailwindcss/cli -i ./input.css -o ./assets/tailwind.css --watch
-```
-
-### Serving Your App
-
-Run the following command in the root of your project to start developing with the default platform:
+To start the development server for your default platform:
 
 ```bash
 dx serve
 ```
 
-To run for a different platform, use the `--platform platform` flag. E.g.
+For specific platforms:
+
 ```bash
-dx serve --platform desktop
-```
+
+
+# Mobile (iOS)
+dx serve --ios
+
+# Mobile (Android)
+dx serve --android
+
+
+### Data Fetching
+The project uses a clean separation between data models and UI. API calls are located in `src/models.rs` and consumed via the `use_resource` hook in `src/main.rs`:
+
+### Styling
+Styles are managed through a combination of Tailwind utility classes for layout and `assets/main.css` for global theme consistency.
 
