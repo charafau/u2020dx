@@ -2,6 +2,9 @@
 
 This project demonstrates GitHub repository explorer written in Dioxus patterns including asynchronous data fetching, reactive state management, and a premium UI using Tailwind CSS.
 
+![Screenshot](https://raw.githubusercontent.com/charafau/u2020dx/refs/heads/main/screenshot.png)
+
+
 ## 🛠 Tech Stack
 
 - **Core**: [Dioxus 0.7](https://dioxuslabs.com)
